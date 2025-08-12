@@ -1,0 +1,5 @@
+outs:
+- md5: 07146b39e3a6193e2243da9ecca4ee78
+  size: 60203535
+  hash: md5
+  path: student_timetable.csv

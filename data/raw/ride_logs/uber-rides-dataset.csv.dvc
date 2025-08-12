@@ -1,0 +1,5 @@
+outs:
+- md5: aa6fd90748895c9b6627c8e373f853b7
+  size: 417086
+  hash: md5
+  path: uber-rides-dataset.csv
