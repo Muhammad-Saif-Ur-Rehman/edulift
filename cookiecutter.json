@@ -1,0 +1,8 @@
+{
+  "project_name": "EduLift Data Repo",
+  "project_slug": "edulift-data-repo",
+  "author_name": "Your Name",
+  "description": "Synthetic datasets for EduLift (ride logs, GPS traces, schedules)",
+  "open_source_license": "MIT",
+  "python_interpreter": "python3"
+}

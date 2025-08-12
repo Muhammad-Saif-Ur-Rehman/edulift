@@ -1,0 +1,32 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "edulift_data_repo"
+version = "0.0.1"
+description = "Synthetic datasets for EduLift (ride logs, GPS traces, schedules)"
+authors = [
+  { name = "Muhammad Saif ur Rehman" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+requires-python = "~=3.12.0"
+
+
+[tool.ruff]
+line-length = 99
+src = ["edulift_data_repo"]
+include = ["pyproject.toml", "edulift_data_repo/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["edulift_data_repo"]
+force-sort-within-sections = true
+
