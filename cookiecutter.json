@@ -1,8 +1,3 @@
-{
-  "project_name": "EduLift Data Repo",
-  "project_slug": "edulift-data-repo",
-  "author_name": "Your Name",
-  "description": "Synthetic datasets for EduLift (ride logs, GPS traces, schedules)",
-  "open_source_license": "MIT",
-  "python_interpreter": "python3"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:52dafbc053d826ebac8e507049f827b4ffded34892174568adf74368b913a8d2
+size 272
