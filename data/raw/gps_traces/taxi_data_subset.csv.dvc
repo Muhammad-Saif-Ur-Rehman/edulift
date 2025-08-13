@@ -1,5 +1,0 @@
-outs:
-- md5: f0d75baf4abd0f6d69bddfb789023645
-  size: 681200
-  hash: md5
-  path: taxi_data_subset.csv
