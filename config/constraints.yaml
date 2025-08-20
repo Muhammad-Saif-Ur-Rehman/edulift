@@ -1,0 +1,44 @@
+# config/constraints.yaml
+service:
+  service_area_wkt: null         # Optional WKT POLYGON for service area; null = unconstrained
+  max_walk_km: 0.4               # Max walking distance to pickup/drop (0.4 km ~ 5 mins)
+
+time:
+  pickup_window_min_before: 10   # Earliest pickup before requested time (mins)
+  pickup_window_max_after: 5     # Latest pickup after requested time (mins)
+  dropoff_before_event_min: 3    # Dropoff must be at least X mins before event start
+  max_wait_min: 7                # Max rider wait at pickup
+  max_ride_min: 45               # Hard cap on in‑vehicle time
+  max_detour_ratio: 0.25         # (shared_time - solo_time)/solo_time <= 25%
+
+capacity:
+  vehicle_capacity: 4            # Seats available per vehicle (excl. driver)
+  wheelchair_slots: 0            # If applicable
+  luggage_limit: null            # If applicable
+
+safety:
+  speed_kmh_max: 90              # Trips above this average speed are flagged
+  night_hours: [22, 6]           # Night window for special rules (22:00-06:00)
+  night_match_max_detour: 0.15   # Stricter detour at night
+  forbidden_roads: []            # List of OSM way IDs or names to avoid
+  require_two_riders_min_age: 18 # Example: both riders must be >=18 to pool
+
+optimization:
+  objective:
+    weights:
+      total_travel_time: 1.0
+      total_wait_time: 1.0
+      unmatched_penalty: 8.0
+      lateness_penalty: 10.0
+      carbon_penalty: 0.5         # Encourages shorter routes / higher occupancy
+  solver:
+    time_limit_s: 60
+    first_solution_strategy: "PATH_CHEAPEST_ARC"
+    local_search_metaheuristic: "GUIDED_LOCAL_SEARCH"
+    use_time_windows: true
+    use_capacity: true
+
+privacy:
+  round_coords_decimals: 5        # 5 ≈ 1.1 m; use 4 (≈11 m) if stronger privacy needed
+  time_bin_minutes: 1             # Round times to 1‑min bins for logs/exports
+  hash_id_salt_env: "EDULIFT_SALT" # Environment var name for salted hashes
